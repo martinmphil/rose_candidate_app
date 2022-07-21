@@ -31,25 +31,22 @@ async function authorizedFetch(
     initObj.body = upload;
   }
 
-  const result = fetch(url, initObj)
+  const result = await fetch(url, initObj)
     .then((response) => {
       if (!response.ok) {
         console.warn(response.statusText);
-        throw new Error(
-          ` Authorized fetch response not ok, ${response.statusText} `
-        );
+        throw ` Authorized fetch response not ok, ${response.statusText} `;
       }
       return response.json();
     })
     .then((data) => {
-      if (data.error) {
-        console.warn(data.error);
-        throw new Error(" Fetching data returned an error (see warning log). ");
-      }
       if (data.body) {
         return data.body;
       }
-      throw new Error(" The body-field absent from fetched data. ");
+      if (data.error) {
+        throw ` Fetching data returned error:- ${data.error}. `;
+      }
+      throw " Data missing from fetch response. ";
     });
 
   return result;
