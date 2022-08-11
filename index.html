@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Candidate page</title>
   <body>
     <header>
-      <p class="ingress">
+      <p class="login-or-out">
         <a
-          href="https://greenstem-pine.auth.eu-west-1.amazoncognito.com/login?response_type=token&client_id=uedkl69k5q69qtietp85l2smb&redirect_uri=https://main.d28kf1eii4y52x.amplifyapp.com/can"
+          class="egress"
+          href="https://greenstem-pine.auth.eu-west-1.amazoncognito.com/logout?client_id=uedkl69k5q69qtietp85l2smb&logout_uri=https://www.greenstem.uk/logout.html"
         >
-          Register and log-in
+          Log-out
         </a>
       </p>
     </header>
@@ -20,18 +21,6 @@
     <div id="crux">
       <p class="loading">loading...</p>
     </div>
-
-    <hr />
-    <div
-      style="display: grid; grid-template-columns: repeat(5, 1fr); height: 4em"
-    >
-      <div style="background-color: var(--hue10)"></div>
-      <div style="background-color: var(--hue11)"></div>
-      <div style="background-color: var(--hue12)"></div>
-      <div style="background-color: var(--hue13)"></div>
-      <div style="background-color: var(--hue14)"></div>
-    </div>
-    <hr />
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
