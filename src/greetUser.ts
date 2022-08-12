@@ -1,6 +1,6 @@
 import { authorizedFetch } from "./authorizedFetch";
-import { cruxLogin } from "./cruxLogin";
 import { renderGreeting } from "./renderGreeting";
+import { showLogin } from "./showLogin";
 
 async function greetUser() {
   const emailAddr = await authorizedFetch("/data/email");
@@ -9,7 +9,7 @@ async function greetUser() {
     renderGreeting(emailAddr);
     return true;
   }
-  cruxLogin();
+  showLogin();
   sessionStorage.clear();
   return false;
 }

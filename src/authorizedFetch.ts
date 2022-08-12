@@ -1,4 +1,4 @@
-import { cruxLogin } from "./cruxLogin";
+import { showLogin } from "./showLogin";
 
 interface InitObj {
   method: string;
@@ -13,7 +13,7 @@ async function authorizedFetch(
 ): Promise<unknown> {
   const Authorization = sessionStorage.getItem("Authorization");
   if (typeof Authorization != "string" || Authorization.length < 1) {
-    cruxLogin();
+    showLogin();
     throw " Authorization header missing from authorized-fetch ";
   }
 
