@@ -16,15 +16,26 @@ async function answerSelected(candidateAnswer: string) {
   throw ` Fault with candidate-answer ${candidateAnswer}. `;
 }
 
-function answerClickable() {
-  const nodeList = document.querySelectorAll(
+function clickableElements() {
+  const answerNodeList = document.querySelectorAll(
     ".choices[id]"
   ) as NodeListOf<HTMLElement>;
-
-  nodeList.forEach((node) => {
+  answerNodeList.forEach((node) => {
     const candidateAnswer = node.getAttribute("id");
     if (node && candidateAnswer) {
       node.onclick = async () => await answerSelected(candidateAnswer);
+    }
+  });
+
+  const jumpBackNodeList = document.querySelectorAll(
+    ".jump-to-disciplines"
+  ) as NodeListOf<HTMLElement>;
+  jumpBackNodeList.forEach((node) => {
+    if (node) {
+      node.onclick = async () => {
+        renderCrux(`<p class="loading">loading...</p>`);
+        await leaveExamPage();
+      };
     }
   });
 }
@@ -43,7 +54,7 @@ async function getQText(examId: string, upload = "") {
 
   if (typeof qText === "string" && qText.length > 0) {
     renderCrux(qText);
-    answerClickable();
+    clickableElements();
     return;
   }
   throw " Invalid question-text from get-question-text function. ";
