@@ -1,0 +1,78 @@
+:root {
+  --hue0: black;
+  --hue1: white;
+  --hue2: cornsilk;
+  --hue10: hsl(168, 89%, 7%);
+  --dist1: 1em;
+  --dist2: 0.5em;
+  --font-family0: "Ubuntu", "Cabin", "IBM Plex Sans", "Trebuchet MS", Helvetica,
+    Arial, sans-serif;
+  --font-family1: "Times New Roman", Times, Georgia, serif;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-wrap: break-word;
+  color: var(--hue10);
+  font-family: var(--font-family1);
+}
+header .login-or-out {
+  text-align: end;
+}
+.loading {
+  opacity: 50%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family0);
+}
+button {
+  cursor: pointer;
+  font-family: var(--font-family1);
+}
+/* cf script's: querySelectorAll(".discipline[id]"); querySelectorAll(".choices[id]") */
+#crux article button.discipline[id],
+#crux button.choices[id] {
+  display: block;
+  margin-bottom: var(--dist1);
+  overflow-wrap: break-word;
+  padding-bottom: var(--dist2);
+  padding-top: var(--dist2);
+  width: 100%;
+}
+@media only screen and (min-width: 16em) {
+  body {
+    padding: var(--dist1);
+    margin: auto;
+  }
+  body,
+  header a {
+    background-color: var(--hue10);
+    color: var(--hue2);
+  }
+  #crux {
+    background-color: var(--hue1);
+    border-radius: var(--dist1);
+    color: var(--hue0);
+    padding-bottom: var(--dist1);
+    padding-left: var(--dist1);
+    padding-right: var(--dist1);
+    padding-top: var(--dist2);
+  }
+}
+@media only screen and (min-width: 38em) {
+  body {
+    width: 38em;
+  }
+}
