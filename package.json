@@ -1,6 +1,5 @@
 {
   "name": "rose_candidate_page",
-  "private": true,
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
